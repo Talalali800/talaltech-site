@@ -67,7 +67,14 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -.01em; }
   background: var(--brand); color: var(--accent); font: 700 19px/1 Georgia, "Times New Roman", serif;
   border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
 }
-.brand-name { font-weight: 700; font-size: 17px; }
+.brand-name { font-weight: 800; font-size: 19px; letter-spacing: -.01em; }
+.brand-accent { color: var(--accent); }
+.brand-svg { width: 42px; height: 37px; flex: none; }
+.km-ring { stroke: var(--accent); }
+.km-key { fill: var(--surface); stroke: var(--ink); }
+.site-footer .km-key { fill: var(--brand); stroke: #fff; }
+.site-footer .km-ring { stroke: #e0b25a; }
+.site-footer .brand-accent { color: #e0b25a; }
 .brand-tag {
   font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   color: var(--accent); background: var(--accent-soft); padding: 2px 7px; border-radius: 999px;

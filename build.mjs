@@ -14,6 +14,8 @@ const COMPANY = 'TalalTech';
 const EMAIL = 'contact@thequreshico.ca';
 const YEAR = new Date().getFullYear();
 
+const MARK = '<svg class="brand-svg" viewBox="0 0 64 56" aria-hidden="true"><ellipse class="km-ring" cx="32" cy="30" rx="27" ry="8.5" fill="none" stroke-width="2.4" transform="rotate(-16 32 30)"/><path class="km-key" d="M28.5 17H23a5 5 0 0 1 0-10h18a5 5 0 0 1 0 10h-5.5v16.5H42V37h-6.5v2.5h5V43h-5v4h-7z" stroke-width="2.6" stroke-linejoin="round"/></svg>';
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const icons = {
@@ -44,8 +46,8 @@ function header(active) {
 <header class="site-header">
   <div class="wrap header-row">
     <a class="brand" href="/" aria-label="${COMPANY} — home">
-      <span class="brand-mark" aria-hidden="true">T</span>
-      <span class="brand-name">${COMPANY}</span>
+      ${MARK}
+      <span class="brand-name">Talal<span class="brand-accent">Tech</span></span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">${icons.menu}</button>
     <nav id="site-nav" class="nav" aria-label="Main">
@@ -70,7 +72,7 @@ function footer() {
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">T</span><span class="brand-name">${COMPANY}</span></a>
+        <a class="brand" href="/">${MARK}<span class="brand-name">Talal<span class="brand-accent">Tech</span></span></a>
         <p>Building the most trusted, safe technology — helping you get more from your time and resources.</p>
       </div>
       <div><h4>Apps</h4><ul>${appLinks}</ul></div>
@@ -97,6 +99,8 @@ function page({ path, title, description, active, body }) {
 <meta property="og:url" content="${SITE}${path}">
 <meta name="theme-color" content="#0f1d3a">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta property="og:image" content="${SITE}/assets/brand/icon-1024.png">
 <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
