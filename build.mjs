@@ -1,4 +1,4 @@
-// Builds every page of tech.thequreshico.ca from content/ into the repo root,
+// Builds every page of talaltech.thequreshico.ca from content/ into the repo root,
 // which GitHub Pages serves as-is. The header, menu and footer live here once.
 //
 //   node build.mjs
@@ -9,8 +9,8 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { apps } from './content/apps.mjs';
 
-const SITE = 'https://tech.thequreshico.ca';
-const COMPANY = 'The Qureshi Co.';
+const SITE = 'https://talaltalaltech.thequreshico.ca';
+const COMPANY = 'TalalTech';
 const EMAIL = 'contact@thequreshico.ca';
 const YEAR = new Date().getFullYear();
 
@@ -43,9 +43,9 @@ function header(active) {
   return `<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="brand" href="/" aria-label="${COMPANY} Tech — home">
-      <span class="brand-mark" aria-hidden="true">Q</span>
-      <span class="brand-name">${COMPANY}</span><span class="brand-tag">Tech</span>
+    <a class="brand" href="/" aria-label="${COMPANY} — home">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      <span class="brand-name">${COMPANY}</span>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">${icons.menu}</button>
     <nav id="site-nav" class="nav" aria-label="Main">
@@ -70,7 +70,7 @@ function footer() {
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">Q</span><span class="brand-name">${COMPANY}</span><span class="brand-tag">Tech</span></a>
+        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">T</span><span class="brand-name">${COMPANY}</span></a>
         <p>Thoughtful apps that respect your time and your privacy.</p>
       </div>
       <div><h4>Apps</h4><ul>${appLinks}</ul></div>
@@ -83,7 +83,7 @@ function footer() {
 }
 
 function page({ path, title, description, active, body }) {
-  const full = title ? `${title} — ${COMPANY}` : `${COMPANY} Tech`;
+  const full = title ? `${title} — ${COMPANY}` : `${COMPANY}`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -135,11 +135,11 @@ write('/', page({
   path: '/',
   title: '',
   active: 'home',
-  description: 'The Qureshi Co. builds thoughtful apps — Calamus3, AdaptivePlanner and Granteez — that respect your time and your privacy.',
+  description: 'TalalTech builds thoughtful apps — Calamus3, AdaptivePlanner and Granteez — that respect your time and your privacy.',
   body: `<section class="hero">
   <div class="wrap hero-grid">
     <div>
-    <p class="eyebrow">${COMPANY} · Tech</p>
+    <p class="eyebrow">${COMPANY}</p>
     <h1>Thoughtful apps for everyday life.</h1>
     <p class="lead">We build software that respects your time and keeps your information where it belongs — private messaging, a planner that adapts to your day, and grant funding for nonprofits.</p>
     <div class="btn-row">
@@ -191,12 +191,12 @@ write('/about/', page({
   path: '/about/',
   title: 'About',
   active: 'about',
-  description: 'About The Qureshi Co. and the apps we make.',
+  description: 'About TalalTech and the apps we make.',
   body: `<section class="page-head">
   <div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / About</p>
     <h1>About us</h1>
-    <p>${COMPANY} is a small Canadian software studio. We build apps for people and organizations who want tools that work well and treat their information with care.</p>
+    <p>${COMPANY} is a software studio. We build apps for people and organizations who want tools that work well and treat their information with care.</p>
   </div>
 </section>
 <section class="section">
@@ -220,7 +220,7 @@ write('/contact/', page({
   path: '/contact/',
   title: 'Contact',
   active: 'contact',
-  description: 'Contact The Qureshi Co. about Calamus3, AdaptivePlanner or Granteez.',
+  description: 'Contact TalalTech about Calamus3, AdaptivePlanner or Granteez.',
   body: `<section class="page-head">
   <div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / Contact</p>
@@ -337,5 +337,5 @@ write('/404.html', page({
   body: `<section class="page-head"><div class="wrap"><h1>Page not found</h1><p>That page doesn’t exist. Try the <a href="/">home page</a> or one of our apps from the menu.</p></div></section>`,
 }));
 
-writeFileSync('CNAME', 'tech.thequreshico.ca\n');
+writeFileSync('CNAME', 'talaltech.thequreshico.ca\n');
 console.log('wrote ./CNAME');
