@@ -71,7 +71,7 @@ function footer() {
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">T</span><span class="brand-name">${COMPANY}</span></a>
-        <p>Thoughtful apps that respect your time and your privacy.</p>
+        <p>Building the most trusted, safe technology — helping you get more from your time and resources.</p>
       </div>
       <div><h4>Apps</h4><ul>${appLinks}</ul></div>
       <div><h4>Company</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li></ul></div>
@@ -196,11 +196,14 @@ write('/about/', page({
   <div class="wrap">
     <p class="crumbs"><a href="/">Home</a> / About</p>
     <h1>About us</h1>
-    <p>${COMPANY} is a software studio. We build apps for people and organizations who want tools that work well and treat their information with care.</p>
+    <p>${COMPANY} is a growing tech startup building apps that help people and organizations make the most of their time, money and effort — without giving up their privacy.</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap prose">
+    <h2>Our vision</h2>
+    <p>To become the most trusted and safe technology company in Canada and around the world — one that helps people maximize their resources and productivity.</p>
+    <p>Trust is earned in the details: what an app collects, what it never asks for, and whether you can walk away with your data. We build every app with that in mind from the first line of code.</p>
     <h2>What we make</h2>
     <p>We focus on a few apps and try to do each one properly:</p>
     <ul>
