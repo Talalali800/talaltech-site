@@ -361,7 +361,10 @@ for (const app of apps.filter((a) => a.deletion)) {
     <h2>What is kept</h2>
     <p>${esc(d.kept)}</p>
     <h2>Can’t sign in?</h2>
-    <p>Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(app.name + ' account deletion')}">${EMAIL}</a> with your username and we will help. ${esc(app.name)} accounts have no email address or phone number attached, so we may ask you to confirm the account is yours before deleting it.</p>
+    ${d.cantSignIn
+      // Per app: {EMAIL} becomes the support mailto link.
+      ? `<p>${esc(d.cantSignIn).replace('{EMAIL}', `<a href="mailto:${EMAIL}?subject=${encodeURIComponent(app.name + ' account deletion')}">${EMAIL}</a>`)}</p>`
+      : `<p>Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(app.name + ' account deletion')}">${EMAIL}</a> with your username and we will help. ${esc(app.name)} accounts have no email address or phone number attached, so we may ask you to confirm the account is yours before deleting it.</p>`}
     <p>For everything else about your data, see the <a href="/${app.slug}/privacy/">${esc(app.name)} privacy policy</a>.</p>
   </div>
 </section>`,
