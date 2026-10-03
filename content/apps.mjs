@@ -127,7 +127,7 @@ export const apps = [
       cantSignIn: 'Email {EMAIL} from the address on your account and we will delete it for you. Never created an account? Then your data isn’t linked to any email — tap Erase all my data in the app (Settings → Profile) before uninstalling it, and it’s all removed.',
     },
     policy: 'adaptiveplanner.html',
-    policyUpdated: 'Effective 1 October 2026',
+    policyUpdated: 'Effective 3 October 2026',
   },
   {
     slug: 'granteez',
