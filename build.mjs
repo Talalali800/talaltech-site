@@ -366,6 +366,30 @@ for (const app of apps.filter((a) => a.deletion)) {
   }));
 }
 
+// ---------- AdaptivePlanner: where the account confirmation email lands ----------
+// Supabase (Authentication → URL Configuration → Site URL) sends people here
+// after they tap "Confirm my email". The confirming has already happened by
+// the time this loads; the page only says so and points back to the app.
+write('/adaptiveplanner/email-confirmed/', page({
+  path: '/adaptiveplanner/email-confirmed/',
+  title: 'Email confirmed — AdaptivePlanner',
+  active: 'apps',
+  description: 'Your AdaptivePlanner email is confirmed.',
+  body: `<section class="page-head">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/adaptiveplanner/">AdaptivePlanner</a> / Email confirmed</p>
+    <h1>Your email is confirmed ✓</h1>
+    <p>Thanks — your AdaptivePlanner account is all set. You can close this page and go back to the app.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap prose">
+    <p>If the app still says “Check your email”, open it again (or tap <strong>I’ve confirmed it</strong>) and it will finish signing you in.</p>
+    <p>Didn’t create an account? You can ignore the email. Questions: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+  </div>
+</section>`,
+}));
+
 // ---------- 404 ----------
 write('/404.html', page({
   path: '/404.html',
