@@ -65,7 +65,7 @@ export const apps = [
       kept: 'Nothing is kept by us after deletion, except that our database provider’s routine backups can hold deleted data for a short time until they expire. Google AdMob and Tremendous keep their own records of ads shown and payouts sent, under their own policies. Unspent coins are lost — cash out first if you want to keep their value.',
     },
     policy: 'calamus3.html',
-    policyUpdated: 'Last updated 29 September 2026',
+    policyUpdated: 'Last updated 2 October 2026',
   },
   {
     slug: 'adaptiveplanner',
