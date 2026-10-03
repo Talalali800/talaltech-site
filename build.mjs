@@ -270,7 +270,7 @@ for (const app of apps) {
   const steps = app.howTo.map(([t, d]) => `<li><strong>${esc(t)}</strong><span>${esc(d)}</span></li>`).join('\n');
   const features = app.features.map(([t, d]) => `<li><strong>${esc(t)}</strong><span>${esc(d)}</span></li>`).join('');
   const policyBody = policy
-    ? `<div class="policy">${policy}</div><a class="policy-link" href="/${app.slug}/privacy/">Open the privacy policy on its own page →</a>`
+    ? `<div class="policy">${policy}</div><a class="policy-link" href="/${app.slug}/privacy/">Open the privacy policy on its own page →</a>${app.deletion ? `<br><a class="policy-link" href="/${app.slug}/delete-account/">How to delete your account →</a>` : ''}`
     : `<div class="policy"><p>${esc(app.name)}’s privacy policy will be published here before it launches. Until then, if you have a question about how your information would be handled, email <a href="mailto:${EMAIL}">${EMAIL}</a>.</p></div>`;
 
   write(`/${app.slug}/`, page({
@@ -333,6 +333,37 @@ for (const app of apps) {
 </section>`,
     }));
   }
+}
+
+// ---------- Account deletion (Google Play requires a web page for this) ----------
+for (const app of apps.filter((a) => a.deletion)) {
+  const d = app.deletion;
+  write(`/${app.slug}/delete-account/`, page({
+    path: `/${app.slug}/delete-account/`,
+    title: `Delete your ${app.name} account`,
+    active: 'apps',
+    description: `How to delete your ${app.name} account and what is deleted.`,
+    body: `<section class="page-head">
+  <div class="wrap">
+    <p class="crumbs"><a href="/">Home</a> / <a href="/${app.slug}/">${esc(app.name)}</a> / Delete account</p>
+    <h1>Delete your ${esc(app.name)} account</h1>
+    <p>${esc(app.name)} is made by ${COMPANY}. You can delete your account yourself, at any time, from inside the app.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap prose">
+    <h2>How to delete your account</h2>
+    <ol class="steps">${d.steps.map((s) => `<li><span>${esc(s)}</span></li>`).join('')}</ol>
+    <h2>What is deleted</h2>
+    <p>Deleting your account removes ${esc(d.deleted)}</p>
+    <h2>What is kept</h2>
+    <p>${esc(d.kept)}</p>
+    <h2>Can’t sign in?</h2>
+    <p>Email <a href="mailto:${EMAIL}?subject=${encodeURIComponent(app.name + ' account deletion')}">${EMAIL}</a> with your username and we will help. ${esc(app.name)} accounts have no email address or phone number attached, so we may ask you to confirm the account is yours before deleting it.</p>
+    <p>For everything else about your data, see the <a href="/${app.slug}/privacy/">${esc(app.name)} privacy policy</a>.</p>
+  </div>
+</section>`,
+  }));
 }
 
 // ---------- 404 ----------

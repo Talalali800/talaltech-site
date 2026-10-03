@@ -47,6 +47,16 @@ export const apps = [
       ['Check the security code', 'Open a chat and compare the security code with your contact in person to confirm nobody is in the middle.'],
       ['Personalise', 'Pick a theme, add a profile picture, and choose who can see when you are online in Settings → Privacy.'],
     ],
+    deletion: {
+      steps: [
+        'Open Calamus3 and sign in.',
+        'Go to Settings (the gear in the bottom bar).',
+        'Scroll to the bottom and tap Delete account permanently.',
+        'Confirm. Your account is deleted straight away — there is no waiting period.',
+      ],
+      deleted: 'your account and profile, encryption keys, anything still waiting to be delivered, your chat backup, uploads, one-to-one conversations, contact requests, call records, reports and problem reports, notification subscriptions, and your coins, perks and cash-out records. Groups you created are deleted too, and the chats on the phone you delete from are erased.',
+      kept: 'Nothing is kept by us after deletion, except that our database provider’s routine backups can hold deleted data for a short time until they expire. Google AdMob and Tremendous keep their own records of ads shown and payouts sent, under their own policies. Unspent coins are lost — cash out first if you want to keep their value.',
+    },
     policy: 'calamus3.html',
     policyUpdated: 'Last updated 29 September 2026',
   },
