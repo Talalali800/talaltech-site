@@ -356,6 +356,8 @@ for (const app of apps.filter((a) => a.deletion)) {
     <ol class="steps">${d.steps.map((s) => `<li><span>${esc(s)}</span></li>`).join('')}</ol>
     <h2>What is deleted</h2>
     <p>Deleting your account removes ${esc(d.deleted)}</p>
+    ${d.partial ? `<h2>Deleting some of your data without deleting your account</h2>
+    <ul>${d.partial.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>` : ''}
     <h2>What is kept</h2>
     <p>${esc(d.kept)}</p>
     <h2>Can’t sign in?</h2>
